@@ -1,0 +1,1 @@
+# codeql-custom-security-rules
