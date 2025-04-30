@@ -1,0 +1,25 @@
+name: Publish CodeQL Pack to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main  # Adjust if using a different branch for release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up CodeQL CLI
+        uses: github/codeql-action/setup-codeql@v2
+
+      - name: Log in to GitHub Packages
+        uses: actions/configure-package-auth@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish CodeQL Pack to GitHub Packages
+        run: |
+          codeql pack publish . --token ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,6 @@
-name: hetavi20/custom-security-rules
+name: hetavi20/custom-codeql-rules
 version: 0.0.1
 dependencies:
   codeql/csharp-queries: "*"
+library: false
 extractor: csharp
